@@ -1,5 +1,5 @@
 class Service {
-  static handleSuccess = ({ data = undefined, message = "Request Successful", statusCode = 200 }) => {
+  static handleSuccess = ({ data = undefined, statusCode = 200, message = "Request Successful" }) => {
     return {
       success: true,
       data,
@@ -8,7 +8,7 @@ class Service {
     };
   };
 
-  static handleError = ({ message = "Request failed", statusCode = 500 }) => {
+  static handleError = ({ message = "Internal Server Error", statusCode = 500 }) => {
     return {
       success: false,
       message,

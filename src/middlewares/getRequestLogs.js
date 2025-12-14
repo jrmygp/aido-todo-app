@@ -13,9 +13,11 @@ const getRequestLogs = async (req, res, next) => {
 
     const loggingFormat = `${req.method} ${req.path} ${now}`;
     fs.appendFileSync(`${__dirname}/../../.log`, loggingFormat + "\n");
+
+    next();
   } catch (error) {
     return res.status(500).json({
-      message: "Server error!",
+      message: "Middleware error!",
     });
   }
 };
